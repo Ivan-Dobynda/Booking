@@ -1,0 +1,11 @@
+import { Country } from "../country/country"
+
+model Language {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  status     Int       @default(1)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  countryIDs String[]  @db.ObjectId
+  countries  Country[] @relation(fields: [countryIDs], references: [id])
+}

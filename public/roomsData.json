@@ -1,0 +1,584 @@
+{
+    "status": 200,
+    "message": "success",
+    "result": {
+        "auditData": {
+            "processTime": "1023",
+            "timestamp": "2024-01-16 10:04:18.627",
+            "requestHost": "54.72.215.85, 10.214.140.213, 10.214.138.94",
+            "serverId": "ip-10-214-130-54.eu-central-1.compute.internal",
+            "environment": "[awseucentral1, awseucentral1c, ip_10_214_130_54, eucentral1]",
+            "release": "",
+            "token": "8D06A30381FB4ABE940BC6F6FC6CB711",
+            "internal": "0|6F0BA6B3A65E4A4170539945760400|UK|05|1|16||||||||||||9||1~1~2~0|0|0||0|c08649ffaaae5c256bbdc0c539bb6bcc||||"
+        },
+        "hotels": {
+            "hotels": [
+                {
+                    "code": 1533,
+                    "name": "Mirador",
+                    "categoryCode": "4EST",
+                    "categoryName": "4 STARS",
+                    "destinationCode": "PMI",
+                    "destinationName": "Majorca",
+                    "zoneCode": 10,
+                    "zoneName": "Palma",
+                    "latitude": "39.56810000000000000000",
+                    "longitude": "2.63120000000000000000",
+                    "rooms": [
+                        {
+                            "code": "DBL.ST",
+                            "name": "DOUBLE STANDARD",
+                            "rates": [
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|OP-NRF-BAR-RO|RO||1~2~0||P@06~~25ce8~1532821596~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000525ce8",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "232.92",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": true,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "232.92",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0,
+                                    "promotions": [
+                                        {
+                                            "code": "073",
+                                            "name": "Non-refundable rate. No amendments permitted",
+                                            "remark": "UNKNOWN"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|NRF-RO|RO||1~2~0||N@06~~200129~-1062208687~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005239fc",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "252.57",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "252.57",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|OP-BAR-RO|RO||1~2~0||P@06~~200105~1254254324~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005200105",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "261.00",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": true,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "87.00",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|BAR-RO|RO||1~2~0||N@06~~20014a~498869477~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005241118",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "280.65",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "93.55",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|OP-NRF-BAR-BB|BB||1~2~0||P@06~~25f130~-874751942~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000525f130",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "304.95",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": true,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "304.95",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0,
+                                    "promotions": [
+                                        {
+                                            "code": "073",
+                                            "name": "Non-refundable rate. No amendments permitted",
+                                            "remark": "UNKNOWN"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|NRF-BB|BB||1~2~0||N@06~~250184~-696367039~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000523f14a",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "330.63",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "330.63",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|OP-BAR-BB|BB||1~2~0||P@06~~243155~270801556~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005243155",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "341.67",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": true,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "113.89",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.ST|BAR-BB|BB||1~2~0||N@06~~2001b0~-450956122~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000522616f",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "367.38",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "122.46",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": "DBL.SS",
+                            "name": "DOUBLE SIDE SEA VIEW",
+                            "rates": [
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.SS|NRF-RO|RO||1~2~0||N@06~~200144~185642757~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005237113",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "275.55",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "275.55",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.SS|BAR-RO|RO||1~2~0||N@06~~200168~-739812658~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000520f132",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "306.15",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "102.05",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.SS|NRF-BB|BB||1~2~0||N@06~~25019f~915407327~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000523d161",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "353.61",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "353.61",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.SS|BAR-BB|BB||1~2~0||N@06~~2001ce~447134562~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005258188",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "392.88",
+                                    "allotment": 20,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "130.96",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                }
+                            ]
+                        },
+                        {
+                            "code": "DBL.VM",
+                            "name": "DOUBLE SEA VIEW",
+                            "rates": [
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.VM|NRF-RO|RO||1~2~0||N@06~~20015f~-81512931~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000523212a",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "298.50",
+                                    "allotment": 9,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "298.50",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.VM|BAR-RO|RO||1~2~0||N@06~~200186~-283657647~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK0000001000000000524114b",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "331.65",
+                                    "allotment": 9,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "RO",
+                                    "boardName": "ROOM ONLY",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "110.55",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.VM|NRF-BB|BB||1~2~0||N@06~~2501ba~1068433942~N~~~NRF~6F0BA6B3A65E4A4170539945760400AAUK00000010000000005238178",
+                                    "rateClass": "NRF",
+                                    "rateType": "BOOKABLE",
+                                    "net": "376.56",
+                                    "allotment": 9,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "376.56",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                },
+                                {
+                                    "rateKey": "20240117|20240120|W|1|1533|DBL.VM|BAR-BB|BB||1~2~0||N@06~~2001ec~898434826~N~~~NOR~6F0BA6B3A65E4A4170539945760400AAUK000000100000000052291a2",
+                                    "rateClass": "NOR",
+                                    "rateType": "BOOKABLE",
+                                    "net": "418.41",
+                                    "allotment": 9,
+                                    "paymentType": "AT_WEB",
+                                    "packaging": false,
+                                    "boardCode": "BB",
+                                    "boardName": "BED AND BREAKFAST",
+                                    "cancellationPolicies": [
+                                        {
+                                            "amount": "139.47",
+                                            "from": "2024-01-15T23:59:00+01:00"
+                                        }
+                                    ],
+                                    "taxes": {
+                                        "taxes": [
+                                            {
+                                                "included": false,
+                                                "amount": "4.95",
+                                                "currency": "EUR",
+                                                "clientAmount": "4.95",
+                                                "clientCurrency": "EUR"
+                                            }
+                                        ],
+                                        "allIncluded": false
+                                    },
+                                    "rooms": 1,
+                                    "adults": 2,
+                                    "children": 0
+                                }
+                            ]
+                        }
+                    ],
+                    "minRate": "232.92",
+                    "maxRate": "418.41",
+                    "currency": "EUR"
+                }
+            ],
+            "checkIn": "2024-01-17",
+            "total": 1,
+            "checkOut": "2024-01-20"
+        }
+    }
+}

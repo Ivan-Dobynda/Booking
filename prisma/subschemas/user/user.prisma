@@ -1,0 +1,98 @@
+import { ActivateToken } from "../activate_token/activate_token"
+import { Booking }from "../booking/booking"
+import { HotelBooking }from "../hotel_booking/hotel_booking"
+import {Country}from "../country/country.prisma"
+import {Language} from "../language/language.prisma"
+import {Currency}from "../country/currency.prisma"
+
+model User {
+    id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+    firstName          String
+    lastName           String
+    image              String?
+    email              String            @unique
+    mobile             String?
+    dob                DateTime?
+    accessibilityNeeds String?
+    bio                String?
+    gender             Gender?
+    password           String
+    emailVerifiedAt    DateTime?
+    role               Role?             @default(USER)
+    activateTokens     ActivateToken[]
+    personalInfo       PersonalInfo?
+    bookings           Booking[]
+    hotelBookings      HotelBooking[]
+    emergencyContact   EmergencyContact?
+    address            Address?
+
+    associateWithTraveler   User?   @relation("associateTravelers", fields: [associateWithTravelerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+    associateWithTravelerId String? @db.ObjectId
+
+    associateTravelers User[]             @relation("associateTravelers")
+    travelDocuments    TravelDocuments?
+    flightPreferences  FlightPreferences?
+
+    country       Country?  @relation(fields: [countryId], references: [id])
+    countryId     String?
+    language      Language? @relation(fields: [languageId], references: [id])
+    languageId    String?
+    currency      Currency? @relation(fields: [currencyId], references: [id])
+    currencyId    String?
+    otp           String?
+    otpExpiration DateTime?
+    enableTwoFA   Boolean  @default(false)
+    isPhoneNumberVerified   Boolean  @default(false)
+
+    createdAt DateTime? @default(now())
+    updatedAt DateTime? @updatedAt
+    deletedAt DateTime?
+}
+
+enum Role {
+    USER
+    TRAVELER
+    SUPER_ADMINISTRATOR
+    ADMIN
+    ACCOUNTS_ADMIN
+    CLIENT_TRAVELER
+    CLIENT_AGENCY
+    CONTENT_MODERATOR
+    CUSTOMER_SUPPORT
+}
+
+enum Gender {
+    MALE
+    FEMALE
+}
+
+type EmergencyContact {
+    firstName String?
+    lastName  String?
+    mobile    String?
+}
+
+type Address {
+    country       String?
+    line1         String?
+    line2         String?
+    aptSuiteFloor String
+    city          String?
+    state         String?
+    postCode      String
+}
+
+type TravelDocuments {
+    country        String?
+    passportNumber String
+    expiryDate     String
+}
+
+type FlightPreferences {
+    seatPreferences         String?
+    mealPreferences         String?
+    connectionPreferences   String?
+    notificationPreferences String?
+    aircraftPreferences     String?
+    loyaltyPreferences      String?
+}

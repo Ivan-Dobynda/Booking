@@ -1,0 +1,1351 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "FlySmartDeals API"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000/api",
+            "description": "Development server"
+        }
+    ],
+    "paths": {
+        "/auth/register": {
+            "post": {
+                "summary": "User Registration",
+                "tags": [
+                    "auth-controllers"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "email",
+                                    "password"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User registration successful",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "User registered successfully. Please check your email and activate the account."
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "emailTaken": {
+                                        "summary": "Email already taken",
+                                        "value": {
+                                            "error": "Email is already taken."
+                                        }
+                                    },
+                                    "missingFields": {
+                                        "summary": "Password Required",
+                                        "value": {
+                                            "error": "Please fill all the required fields."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/providers": {
+            "get": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Get Auth Providers",
+                "responses": {
+                    "200": {
+                        "description": "A list of available authentication providers",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "credentials": {
+                                        "id": "credentials",
+                                        "name": "Credentials",
+                                        "type": "credentials",
+                                        "signinUrl": "http://localhost:3000/api/auth/signin/credentials",
+                                        "callbackUrl": "http://localhost:3000/api/auth/callback/credentials"
+                                    },
+                                    "google": {
+                                        "id": "google",
+                                        "name": "Google",
+                                        "type": "oauth",
+                                        "signinUrl": "http://localhost:3000/api/auth/signin/google",
+                                        "callbackUrl": "http://localhost:3000/api/auth/callback/google"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/csrf": {
+            "get": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "csrfToken": "ad1953c884e69528705e70443a6dff36a10f92003a622673ed8cfccc5f3ecc42"
+                                }
+                            }
+                        },
+                        "requestHeaders": {
+                            "Content-Type": "application/json"
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/callback/credentials": {
+            "post": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Credentials Callback",
+                "description": "Endpoint for handling authentication with credentials.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "csrfToken": {
+                                        "type": "string"
+                                    },
+                                    "callbackUrl": {
+                                        "type": "string"
+                                    },
+                                    "json": {
+                                        "type": "boolean",
+                                        "default": true
+                                    }
+                                },
+                                "required": [
+                                    "email",
+                                    "password",
+                                    "csrfToken",
+                                    "callbackUrl",
+                                    "json"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Authentication successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "url": {
+                                            "type": "string",
+                                            "example": "http://localhost:3000/login"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signin/google": {
+            "post": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "requrid": true,
+                                "properties": {
+                                    "csrfToken": {
+                                        "type": "string",
+                                        "required": "true"
+                                    },
+                                    "callbackUrl": {
+                                        "type": "string"
+                                    },
+                                    "json": {
+                                        "type": "boolean",
+                                        "required": "true"
+                                    }
+                                },
+                                "required": [
+                                    "csrfToken"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Authentication successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "url": {
+                                            "type": "string",
+                                            "example": "https://accounts.google.com/o/oauth2/v2/auth?client_id=891576381124-1s9aavuhk59p18cvjsdmjm95dqv3udgc.apps.googleusercontent.com&scope=openid%20email%20profile&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fapi%2Fauth%2Fcallback%2Fgoogle&state=H9uK_UnWp-l6jBefftcG6VFl_3wc1JlOHcE-VtX-qME&code_challenge=7KOlRYi1cFbXhmYkLP5rMF59ySFYb1rilsJynJfspe8&code_challenge_method=S256"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid request",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/session": {
+            "get": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Get User Session",
+                "description": "Returns the current user session details.",
+                "responses": {
+                    "200": {
+                        "description": "Current user session details",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "user": {
+                                        "name": "Ubaid Badar",
+                                        "email": "m.ubaidbadar@gmail.com",
+                                        "image": null,
+                                        "id": "659e9776d69eaa109f6c3956"
+                                    },
+                                    "expires": "2024-02-12T14:26:24.564Z"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/signout": {
+            "post": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Sign Out",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "csrfToken": {
+                                        "type": "string",
+                                        "example": "2b13cc15b4437dece0317989dd538ca84d564f91f0ec06021485c9b273a576f8"
+                                    }
+                                },
+                                "required": [
+                                    "csrfToken"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/forgot": {
+            "post": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Forgot Password",
+                "description": "Endpoint to initiate a password reset process for a user.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    }
+                                },
+                                "required": [
+                                    "email"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password reset email sent",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Check your email"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth/reset": {
+            "post": {
+                "tags": [
+                    "auth-controllers"
+                ],
+                "summary": "Reset Password",
+                "description": "Endpoint to reset a user's password using a token.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "password": {
+                                        "type": "string"
+                                    },
+                                    "token": {
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "password",
+                                    "token"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Password successfully updated.",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Your password has been updated."
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid token reset request.",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "error": "Invalid token reset request. Please try resetting your password again."
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile": {
+            "put": {
+                "tags": [
+                    "profile-controllers"
+                ],
+                "summary": "Change Profile",
+                "requestBody": {
+                    "required": "true",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "dob": {
+                                        "type": "string",
+                                        "format": "date-time"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email"
+                                    },
+                                    "firstName": {
+                                        "type": "string"
+                                    },
+                                    "lastName": {
+                                        "type": "string"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "enum": [
+                                            "MALE",
+                                            "FEMALE"
+                                        ]
+                                    },
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "phone"
+                                    },
+                                    "username": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "firstName": {
+                                                    "type": "string"
+                                                },
+                                                "lastName": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "mobile": {
+                                                    "type": "string"
+                                                },
+                                                "dob": {
+                                                    "type": "string",
+                                                    "format": "date-time"
+                                                },
+                                                "gender": {
+                                                    "type": "string",
+                                                    "enum": [
+                                                        "MALE",
+                                                        "FEMALE"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "firstName",
+                                                "lastName",
+                                                "email",
+                                                "username",
+                                                "mobile",
+                                                "dob",
+                                                "gender"
+                                            ]
+                                        }
+                                    },
+                                    "required": [
+                                        "message",
+                                        "data"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile/password": {
+            "put": {
+                "tags": [
+                    "profile-controllers"
+                ],
+                "summary": "Change Password",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "currentPassword": {
+                                        "type": "string",
+                                        "required": true
+                                    },
+                                    "newPassword": {
+                                        "type": "string",
+                                        "required": true
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Your password has been updated."
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile/personal-info": {
+            "put": {
+                "tags": [
+                    "profile-controllers"
+                ],
+                "summary": "Update Personal Information",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "nationalId": {
+                                        "type": "string",
+                                        "description": "National identification number"
+                                    },
+                                    "passportNumber": {
+                                        "type": "string",
+                                        "description": "Passport number"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "required": false
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object",
+                                            "properties": {
+                                                "passportNumber": {
+                                                    "type": "string"
+                                                },
+                                                "nationalId": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/profile/settings/travellers": {
+            "post": {
+                "summary": "Add New Traveler",
+                "tags": [
+                    "profile-controllers"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "description": "Information about the traveler to be added",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "required": [
+                                    "firstName",
+                                    "lastName",
+                                    "email",
+                                    "mobile",
+                                    "dob",
+                                    "gender",
+                                    "emergencyContact"
+                                ],
+                                "properties": {
+                                    "firstName": {
+                                        "type": "string",
+                                        "description": "First name of the traveler"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "description": "Last name of the traveler"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "description": "Email address of the traveler"
+                                    },
+                                    "mobile": {
+                                        "type": "string",
+                                        "description": "Mobile number of the traveler"
+                                    },
+                                    "dob": {
+                                        "type": "string",
+                                        "format": "date",
+                                        "description": "Date of birth of the traveler"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "description": "Gender of the traveler"
+                                    },
+                                    "emergencyContact": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string",
+                                                "description": "Name of the emergency contact person"
+                                            },
+                                            "phone": {
+                                                "type": "string",
+                                                "description": "Phone number of the emergency contact person"
+                                            },
+                                            "relationship": {
+                                                "type": "string",
+                                                "description": "Relationship with the emergency contact person"
+                                            }
+                                        },
+                                        "description": "Emergency contact details"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "New traveler added successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/flight": {
+            "post": {
+                "tags": [
+                    "flight-controllers"
+                ],
+                "summary": "Search for Flights",
+                "description": "Search for one-way flights from Lahore to various destinations.",
+                "operationId": "searchFlights",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "slices": {
+                                        "type": "array",
+                                        "minItems": 1,
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "origin": {
+                                                    "type": "string",
+                                                    "description": "Airport code for the origin"
+                                                },
+                                                "destination": {
+                                                    "type": "string",
+                                                    "description": "Airport code for the destination"
+                                                },
+                                                "departure_date": {
+                                                    "type": "string",
+                                                    "format": "date",
+                                                    "description": "Departure date in YYYY-MM-DD format"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "adults": {
+                                        "type": "number",
+                                        "description": "Total number of adults passengers",
+                                        "minimum": 1
+                                    },
+                                    "infant_without_seat": {
+                                        "type": "number",
+                                        "description": "Total number of Infant"
+                                    },
+                                    "max_connections": {
+                                        "type": "number"
+                                    },
+                                    "airline_name": {
+                                        "type": "string"
+                                    },
+                                    "departure_time": {
+                                        "type": "string",
+                                        "example": "05:00:00-12:00:00"
+                                    },
+                                    "arrival_time": {
+                                        "type": "string",
+                                        "example": "05:00:00-12:00:00"
+                                    },
+                                    "ages": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "number",
+                                            "description": "Children ages",
+                                            "example": 1
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "slices",
+                                    "adults"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "offers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Offer"
+                                                    }
+                                                },
+                                                "airlines": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "client_key": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/flight/{flightId}": {
+            "get": {
+                "tags": [
+                    "flight-controllers"
+                ],
+                "summary": "Retrieve Flight Details",
+                "description": "Retrieve the details of a specific flight using its flight ID.",
+                "operationId": "getFlightDetails",
+                "parameters": [
+                    {
+                        "name": "flightId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Unique identifier for the flight",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Flight details retrieved successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "format": "int32"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "result": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "base_amount": {
+                                                    "type": "string"
+                                                },
+                                                "base_currency": {
+                                                    "type": "string"
+                                                },
+                                                "tax_amount": {
+                                                    "type": "string"
+                                                },
+                                                "tax_currency": {
+                                                    "type": "string"
+                                                },
+                                                "total_amount": {
+                                                    "type": "string"
+                                                },
+                                                "total_currency": {
+                                                    "type": "string"
+                                                },
+                                                "total_passengers": {
+                                                    "type": "integer",
+                                                    "format": "int32"
+                                                },
+                                                "flight_type": {
+                                                    "type": "string"
+                                                },
+                                                "slices": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Slice"
+                                                    }
+                                                },
+                                                "passengers": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Passenger"
+                                                    }
+                                                },
+                                                "baggages": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "$ref": "#/components/schemas/Baggage"
+                                                    }
+                                                },
+                                                "owner": {
+                                                    "$ref": "#/components/schemas/Owner"
+                                                },
+                                                "payment_requirements": {
+                                                    "$ref": "#/components/schemas/PaymentRequirements"
+                                                },
+                                                "passenger_identity_documents_required": {
+                                                    "type": "boolean"
+                                                },
+                                                "allowed_passenger_identity_document_types": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "string"
+                                                    }
+                                                },
+                                                "conditions": {
+                                                    "$ref": "#/components/schemas/Conditions"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/flight/booking/paymentIntent": {
+            "post": {
+                "tags": [
+                    "flight-controllers"
+                ],
+                "summary": "Create Payment Intent for Flight Booking",
+                "description": "Creates a payment intent for a flight booking with passenger details, selected offers, and seat services.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "passengers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "type": {
+                                                    "type": "string"
+                                                },
+                                                "born_on": {
+                                                    "type": "string",
+                                                    "format": "date"
+                                                },
+                                                "title": {
+                                                    "type": "string"
+                                                },
+                                                "gender": {
+                                                    "type": "string"
+                                                },
+                                                "family_name": {
+                                                    "type": "string"
+                                                },
+                                                "given_name": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string",
+                                                    "format": "email"
+                                                },
+                                                "phone_number": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "required": [
+                                                "id",
+                                                "type",
+                                                "born_on",
+                                                "title",
+                                                "gender",
+                                                "family_name",
+                                                "given_name",
+                                                "email",
+                                                "phone_number"
+                                            ]
+                                        }
+                                    },
+                                    "selected_offers": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "seatServices": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "object",
+                                            "properties": {
+                                                "quantity": {
+                                                    "type": "integer"
+                                                },
+                                                "id": {
+                                                    "type": "string"
+                                                },
+                                                "serviceInformation": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "required": [
+                                                "quantity",
+                                                "id",
+                                                "serviceInformation"
+                                            ]
+                                        }
+                                    }
+                                },
+                                "required": [
+                                    "passengers",
+                                    "selected_offers",
+                                    "seatServices"
+                                ]
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Payment intent created successfully",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "id": "65a2be87130224b663d4b5a6",
+                                    "fees_currency": null,
+                                    "fees_amount": null,
+                                    "client_token": "eyJjbGllbnRfc2VjcmV0IjoicGlfM09ZQU1PQWcySmhFeTh2WTExbkVNU1NxX3NlY3JldF95eFNkRmxVREFHRU5hZDV6V0Mwc09oY296IiwicHVibGlzaGFibGVfa2V5IjoicGtfdGVzdF9EQUJLY0E2Vzh6OTc0cTdPSWY0YmJ2MVQwMEpwRmMyOUpWIn0=",
+                                    "card_network": null,
+                                    "card_last_four_digits": null,
+                                    "card_country_code": null,
+                                    "net_currency": null,
+                                    "net_amount": null,
+                                    "confirmed_at": null,
+                                    "refunds": null,
+                                    "live_mode": false,
+                                    "created_at": "2024-01-13T16:47:04.053Z",
+                                    "updated_at": "2024-01-13T16:47:04.484Z",
+                                    "amount": "469.64",
+                                    "currency": "GBP",
+                                    "status": "requires_payment_method",
+                                    "paymentId": "pit_0000AdoDzUmIUGEghHC30a",
+                                    "paid": false,
+                                    "selected_offers": [
+                                        "off_0000AdoDr19zyvguhcDiNl"
+                                    ],
+                                    "user_id": "657883eea881b298f5dc0519",
+                                    "expires_at": "2024-01-13T17:15:32.122Z"
+                                }
+                            }
+                        }
+                    },
+                    "410": {
+                        "description": "Offer expired",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Offer has been expired"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/v1/flight/booking/paymentIntent/confirm/{transactionId}": {
+            "post": {
+                "tags": [
+                    "flight-controllers"
+                ],
+                "summary": "Confirm Payment Intent",
+                "description": "Confirms a payment intent for a flight booking using the transaction ID.",
+                "parameters": [
+                    {
+                        "name": "transactionId",
+                        "in": "path",
+                        "required": true,
+                        "description": "Unique transaction ID for the payment intent",
+                        "schema": {
+                            "type": "string",
+                            "example": "65a15b61c230e0f4558d0773"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Payment intent confirmed successfully",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "documents": [
+                                        {
+                                            "passenger_ids": [
+                                                "Array"
+                                            ],
+                                            "unique_identifier": "1",
+                                            "type": "electronic_ticket"
+                                        }
+                                    ],
+                                    "synced_at": "2024-01-13T16:59:49Z",
+                                    "available_actions": [
+                                        "cancel",
+                                        "change",
+                                        "update"
+                                    ],
+                                    "airline_initiated_changes": [],
+                                    "cancellation": null,
+                                    "tax_currency": "GBP",
+                                    "base_currency": "GBP",
+                                    "base_amount": "381.05",
+                                    "tax_amount": "68.59",
+                                    "total_currency": "GBP",
+                                    "total_amount": "449.64",
+                                    "payment_status": {
+                                        "paid_at": "2024-01-13T16:59:49Z",
+                                        "price_guarantee_expires_at": null,
+                                        "payment_required_by": null,
+                                        "awaiting_payment": false
+                                    },
+                                    "created_at": "2024-01-13T16:59:49.298980Z",
+                                    "booking_reference": "S27FBR",
+                                    "live_mode": false,
+                                    "slices": [
+                                        "Array"
+                                    ],
+                                    "passengers": [
+                                        {
+                                            "loyalty_programme_accounts": [],
+                                            "born_on": "1996-11-11",
+                                            "infant_passenger_id": null,
+                                            "family_name": "Badar",
+                                            "given_name": "Ubaid",
+                                            "gender": "m",
+                                            "phone_number": "+923476262068",
+                                            "email": "m.ubaidbadar@gmail.com",
+                                            "title": "mr",
+                                            "type": "adult",
+                                            "id": "pas_0000AdoDr0z0dmtu9X4wFe"
+                                        }
+                                    ],
+                                    "conditions": {
+                                        "refund_before_departure": {
+                                            "penalty_currency": "GBP",
+                                            "penalty_amount": "80.00",
+                                            "allowed": true
+                                        },
+                                        "change_before_departure": {
+                                            "penalty_currency": "GBP",
+                                            "penalty_amount": "80.00",
+                                            "allowed": true
+                                        }
+                                    },
+                                    "cancelled_at": null,
+                                    "changes": [],
+                                    "content": "managed",
+                                    "services": [],
+                                    "metadata": null,
+                                    "type": "instant",
+                                    "owner": {
+                                        "logo_symbol_url": "https://assets.duffel.com/img/airlines/for-light-background/full-color-logo/ZZ.svg",
+                                        "logo_lockup_url": null,
+                                        "iata_code": "ZZ",
+                                        "conditions_of_carriage_url": null,
+                                        "name": "Duffel Airways",
+                                        "id": "arl_00009VME7D6ivUu8dn35WK"
+                                    },
+                                    "id": "ord_0000AdoF84C0dWcSK27h7w"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Transaction not found",
+                        "content": {
+                            "application/json": {
+                                "example": {
+                                    "message": "Transaction not found!"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Offer": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "flight_type": {
+                        "type": "string"
+                    },
+                    "total_amount": {
+                        "type": "string"
+                    },
+                    "total_currency": {
+                        "type": "string"
+                    },
+                    "total_passengers": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "slices": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Slice"
+                        }
+                    }
+                }
+            },
+            "Slice": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "origin": {
+                        "type": "string"
+                    },
+                    "origin_code": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    },
+                    "destination_code": {
+                        "type": "string"
+                    },
+                    "segments": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Segment"
+                        }
+                    }
+                }
+            },
+            "Segment": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    },
+                    "flight_number": {
+                        "type": "string"
+                    },
+                    "airline_name": {
+                        "type": "string"
+                    },
+                    "airline_logo": {
+                        "type": "string",
+                        "format": "uri"
+                    },
+                    "iata_code": {
+                        "type": "string"
+                    },
+                    "origin": {
+                        "type": "string"
+                    },
+                    "origin_iata_city_code": {
+                        "type": "string"
+                    },
+                    "origin_airport_name": {
+                        "type": "string"
+                    },
+                    "destination": {
+                        "type": "string"
+                    },
+                    "destination_iata_city_code": {
+                        "type": "string"
+                    },
+                    "destination_airport_name": {
+                        "type": "string"
+                    },
+                    "departing_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "arriving_at": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "aircraft": {
+                        "type": "string"
+                    },
+                    "stops": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "time_zone": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}

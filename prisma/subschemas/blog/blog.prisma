@@ -1,0 +1,22 @@
+import { BlogCategory } from "./blog_category";
+
+model Blog {
+    id                  String                  @id @default(auto()) @map("_id") @db.ObjectId
+    idOld               Int?
+    title               String
+    slug                String?
+    categoryIdOld       Int?
+    blogCategory        BlogCategory?           @relation(fields: [blogCategoryId], references: [id])
+    blogCategoryId      String?
+    body                String
+    imageOld            String?
+    image               String?
+    featured            Boolean                 @default(false)
+    metaTitle           String?
+    metaKeywords        String?
+    metaDescription     String?
+    lang                String
+    isActive            Boolean                 @default(true)
+    createdAt           DateTime                @default(now())
+    updatedAt           DateTime                @updatedAt
+}

@@ -1,0 +1,359 @@
+//🧩Don't Edit this file.✨Generated in Sun May 26 2024 07:28:17 GMT-0500 (Central Daylight Time)✨
+
+model ActivateToken {
+  id    String @id @default(auto()) @map("_id") @db.ObjectId
+  token String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("NEXT_DATABASE_URL")
+}
+
+model Blog {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  idOld           Int?
+  title           String
+  slug            String?
+  categoryIdOld   Int?
+  blogCategory    BlogCategory? @relation(fields: [blogCategoryId], references: [id])
+  blogCategoryId  String?
+  body            String
+  imageOld        String?
+  image           String?
+  featured        Boolean       @default(false)
+  metaTitle       String?
+  metaKeywords    String?
+  metaDescription String?
+  lang            String
+  isActive        Boolean       @default(true)
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model BlogCategory {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  slug      String?
+  isActive  Boolean  @default(true)
+  blogs     Blog[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Booking {
+  id            String       @id @default(auto()) @map("_id") @db.ObjectId
+  orderId       String
+  airlineName   String?
+  amount        Float?
+  currency      String?
+  user          User         @relation(fields: [userId], references: [id])
+  userId        String
+  createdAt     DateTime     @default(now())
+  Transaction   Transaction? @relation(fields: [transactionId], references: [id])
+  transactionId String?      @db.ObjectId
+}
+
+model City {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  cityId     Int?
+  city       String
+  sortOrder  Int?
+  isDefault  Boolean  @default(false)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  state      State?   @relation(fields: [stateId], references: [id])
+  stateId    String?  @db.ObjectId
+  stateIdOld Int? // remove later
+}
+
+model Country {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  countryId Int?
+  country   String   @unique
+  sortOrder Int      @default(0)
+  isDefault Boolean  @default(false)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  states    State[]
+
+  currencyIDs String[]   @db.ObjectId
+  currencies  Currency[] @relation(fields: [currencyIDs], references: [id])
+  languageIDs String[]   @db.ObjectId
+  languages   Language[] @relation(fields: [languageIDs], references: [id])
+  User        User[]
+}
+
+model Currency {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  status     Int       @default(1)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  countryIDs String[]  @db.ObjectId
+  countries  Country[] @relation(fields: [countryIDs], references: [id])
+  User       User[]
+}
+
+model Faq {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  sortOrder Int?
+  lang      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model HotelBooking {
+  id               String   @id @default(auto()) @map("_id") @db.ObjectId
+  bookingReference String?
+  clientReference  String?
+  hotelName        String
+  hotelCode        String?
+  amount           Float?
+  currency         String?
+  user             User     @relation(fields: [userId], references: [id])
+  userId           String
+  createdAt        DateTime @default(now())
+}
+
+model Language {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  status     Int       @default(1)
+  createdAt  DateTime  @default(now())
+  updatedAt  DateTime  @updatedAt
+  countryIDs String[]  @db.ObjectId
+  countries  Country[] @relation(fields: [countryIDs], references: [id])
+  User       User[]
+}
+
+model PasswordResetToken {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  token     String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+}
+
+model State {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  stateId      Int?
+  state        String
+  sortOrder    Int      @default(0)
+  isDefault    Boolean  @default(false)
+  isActive     Boolean  @default(true)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  country      Country  @relation(fields: [countryId], references: [id])
+  countryId    String   @db.ObjectId
+  countryIdOld Int? // remove later
+  cities       City[]
+}
+
+model Transaction {
+  id                    String      @id @default(auto()) @map("_id") @db.ObjectId
+  fees_currency         String?
+  fees_amount           String?
+  client_token          String?
+  card_network          String?
+  card_last_four_digits String?
+  card_country_code     String?
+  net_currency          String?
+  net_amount            String?
+  confirmed_at          DateTime?
+  refunds               Json?
+  created_at            DateTime
+  updated_at            DateTime?
+  amount                String
+  currency              String
+  status                Status?
+  paymentId             String      @unique
+  seatServices          Seat[]
+  passengers            Passenger[]
+  offerId               String      @unique
+  userId                String?
+  orderId               String?
+  expires_at            DateTime
+  airlineName           String?
+  commission            Float
+  Booking               Booking[]
+}
+
+enum Status {
+  open
+  complete
+  expired
+}
+
+enum PassengerType {
+  adult
+  child
+  infant_without_seat
+}
+
+enum PassengerGender {
+  m
+  f
+}
+
+enum Title {
+  MR
+  MS
+  MRS
+  mr
+  ms
+  mrs
+}
+
+model Passenger {
+  uid                String          @id @default(auto()) @map("_id") @db.ObjectId
+  id                 String
+  type               PassengerType
+  born_on            String
+  title              Title
+  gender             PassengerGender
+  family_name        String
+  given_name         String
+  email              String
+  phone_number       String
+  identity_documents Json?
+  Transaction        Transaction?    @relation(fields: [transactionId], references: [id])
+  transactionId      String?         @db.ObjectId
+}
+
+model Seat {
+  uid                String       @id @default(auto()) @map("_id") @db.ObjectId
+  id                 String
+  quantity           Int
+  Transaction        Transaction? @relation(fields: [transactionId], references: [id])
+  transactionId      String?      @db.ObjectId
+  serviceInformation Json?
+}
+
+model AdditionalTraveler {
+  id               String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId           String            @db.ObjectId
+  user             User              @relation(fields: [userId], references: [id])
+  firstName        String?
+  lastName         String?
+  gender           Gender?
+  dob              String?
+  mobile           String?
+  emergencyContact EmergencyContact?
+}
+
+model PersonalInfo {
+  id             String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId         String  @unique
+  passportNumber String?
+  nationalId     String?
+  user           User    @relation(fields: [userId], references: [id])
+}
+
+model User {
+  id                 String            @id @default(auto()) @map("_id") @db.ObjectId
+  firstName          String
+  lastName           String
+  image              String?
+  email              String            @unique
+  mobile             String?
+  dob                DateTime?
+  accessibilityNeeds String?
+  bio                String?
+  gender             Gender?
+  password           String
+  emailVerifiedAt    DateTime?
+  role               Role?             @default(USER)
+  activateTokens     ActivateToken[]
+  personalInfo       PersonalInfo?
+  bookings           Booking[]
+  hotelBookings      HotelBooking[]
+  emergencyContact   EmergencyContact?
+  address            Address?
+
+  associateWithTraveler   User?   @relation("associateTravelers", fields: [associateWithTravelerId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  associateWithTravelerId String? @db.ObjectId
+
+  associateTravelers User[]             @relation("associateTravelers")
+  travelDocuments    TravelDocuments?
+  flightPreferences  FlightPreferences?
+
+  country               Country?  @relation(fields: [countryId], references: [id])
+  countryId             String?
+  language              Language? @relation(fields: [languageId], references: [id])
+  languageId            String?
+  currency              Currency? @relation(fields: [currencyId], references: [id])
+  currencyId            String?
+  otp                   String?
+  otpExpiration         DateTime?
+  enableTwoFA           Boolean   @default(false)
+  isPhoneNumberVerified Boolean   @default(false)
+
+  createdAt          DateTime?            @default(now())
+  updatedAt          DateTime?            @updatedAt
+  deletedAt          DateTime?
+  PasswordResetToken PasswordResetToken[]
+  AdditionalTraveler AdditionalTraveler[]
+}
+
+enum Role {
+  USER
+  TRAVELER
+  SUPER_ADMINISTRATOR
+  ADMIN
+  ACCOUNTS_ADMIN
+  CLIENT_TRAVELER
+  CLIENT_AGENCY
+  CONTENT_MODERATOR
+  CUSTOMER_SUPPORT
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+type EmergencyContact {
+  firstName String?
+  lastName  String?
+  mobile    String?
+}
+
+type Address {
+  country       String?
+  line1         String?
+  line2         String?
+  aptSuiteFloor String
+  city          String?
+  state         String?
+  postCode      String
+}
+
+type TravelDocuments {
+  country        String?
+  passportNumber String
+  expiryDate     String
+}
+
+type FlightPreferences {
+  seatPreferences         String?
+  mealPreferences         String?
+  connectionPreferences   String?
+  notificationPreferences String?
+  aircraftPreferences     String?
+  loyaltyPreferences      String?
+}

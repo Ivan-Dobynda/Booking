@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.base-container {
+  @apply max-w-screen-xl px-6 2xl:px-2 mx-auto w-full;
+}
+
+.hero {
+  background: linear-gradient(
+      0deg,
+      rgba(14, 18, 24, 0.35) 0%,
+      rgba(14, 18, 24, 0.35) 100%
+    ),
+    url("/assets/hero.png"), lightgray 50% / cover no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.search-card {
+  background-image: url("/assets/map.png");
+  background-size: cover;
+}
+.service-card {
+  box-shadow: 0px 8px 60px -4px rgba(24, 39, 75, 0.08);
+}
+.top-destinations-right-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  grid-column-gap: 16px;
+  grid-row-gap: 16px;
+}
+
+.top-destinations-right-grid .destination-1 {
+  grid-area: 1 / 1 / 4 / 2;
+}
+.top-destinations-right-grid .destination-2 {
+  grid-area: 4 / 1 / 7 / 2;
+}
+.top-destinations-right-grid .destination-3 {
+  grid-area: 7 / 1 / 10 / 2;
+}
+.top-destinations-right-grid .destination-4 {
+  grid-area: 10 / 1 / 13 / 2;
+}
+.top-destinations-right-grid .destination-5 {
+  grid-area: 1 / 2 / 5 / 3;
+}
+.top-destinations-right-grid .destination-6 {
+  grid-area: 5 / 2 / 9 / 3;
+}
+.top-destinations-right-grid .destination-7 {
+  grid-area: 9 / 2 / 13 / 3;
+}
+@media (min-width: 768px) {
+  .top-destinations-right-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+  }
+
+  .top-destinations-right-grid .destination-1 {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+  .top-destinations-right-grid .destination-2 {
+    grid-area: 1 / 1 / 4 / 2;
+  }
+  .top-destinations-right-grid .destination-3 {
+    grid-area: 4 / 1 / 9 / 2;
+  }
+  .top-destinations-right-grid .destination-4 {
+    grid-area: 3 / 2 / 5 / 3;
+  }
+  .top-destinations-right-grid .destination-5 {
+    grid-area: 5 / 2 / 9 / 3;
+  }
+  .top-destinations-right-grid .destination-6 {
+    grid-area: 1 / 3 / 5 / 4;
+  }
+  .top-destinations-right-grid .destination-7 {
+    grid-area: 5 / 3 / 9 / 4;
+  }
+}
+
+.truncate-3-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.truncate-4-lines {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.button {
+  min-height: 52px;
+  @apply inline-flex items-center justify-center py-1.5 sm:py-2 px-8 text-sm md:text-base rounded-xl leading-none font-medium transition duration-200 disabled:opacity-80;
+}
+@media (max-width: 786px) {
+  .button {
+    min-height: 48px;
+  }
+}
+.button.primary {
+  @apply text-white bg-brand-blue hover:bg-brand-blue-500 disabled:bg-brand-blue;
+}
+.button.primary-light {
+  @apply text-white bg-[#0D4073] hover:bg-[#0c3b6b] disabled:bg-[#0D4073];
+}
+.button.secondary {
+  @apply text-brand-neutral-700 bg-white hover:bg-gray-50 ring-1 ring-[rgba(5,15,21,0.20)] disabled:bg-white;
+}
+.button.green {
+  @apply text-white bg-green-500 hover:bg-green-600 disabled:bg-green-500;
+}
+
+.button.small {
+  @apply md:py-2 md:px-4 !min-h-[40px] md:text-sm p-4;
+}
+
+.card-shadow,
+.flight-details-card,
+.flights-filter {
+  box-shadow: 0px 4px 8px 0px rgba(24, 39, 75, 0.06),
+    0px -4px 8px 0px rgba(24, 39, 75, 0.06);
+}
+.number-filter input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.number-filter input[type="number"]::-webkit-inner-spin-button,
+.number-filter input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.blog-content {
+  @apply prose antialiased prose-img:w-full prose-img:rounded-xl prose-img:mt-5 lg:prose-img:mt-6 prose-h4:mt-3 lg:prose-h4:mt-4 prose-h4:mb-2.5 lg:prose-h4:mb-3 prose-h3:mt-3.5 lg:prose-h3:mt-5 prose-h3:mb-2.5 lg:prose-h3:mb-3.5 prose-h2:mt-6 lg:prose-h2:mt-7 prose-h2:mb-4 lg:prose-h2:mb-5 prose-h2:font-semibold prose-h1:text-[26px] prose-h1:leading-[34px] sm:prose-h1:text-3xl sm:prose-h1:leading-[40px] lg:prose-h1:text-4xl lg:prose-h1:leading-[46px] prose-h1:text-brand-neutral-800 prose-headings:text-brand-neutral-700 prose-base lg:prose-lg prose-p:text-brand-neutral-600 prose-p:text-opacity-95 flex-1 max-w-full;
+}
+.react-datepicker {
+  font-family: inherit !important;
+  border: none !important;
+  width: 100% !important;
+}
+.calendar-2-months .react-datepicker {
+  display: flex !important;
+}
+.react-datepicker__month-container:not(:last-child) {
+  @apply border-r border-gray-300;
+}
+.react-datepicker__month-container {
+  float: none !important;
+}
+.calendar-2-months .react-datepicker__month-container {
+  width: 50%;
+  float: left !important;
+}
+.react-datepicker__header {
+  background: transparent !important;
+  border: none !important;
+}
+.react-datepicker__day-name {
+  font-weight: 500 !important;
+}
+.react-datepicker__current-month {
+  margin-bottom: 10px;
+}
+.react-datepicker__day {
+  border-radius: 50% !important;
+  font-size: 14px;
+}
+.react-datepicker__day-name,
+.react-datepicker__day,
+.react-datepicker__time-name {
+  margin: 3px !important;
+  width: 31px !important;
+
+  line-height: 31px !important;
+  /* height: 28px !important;  */
+}
+.react-datepicker__navigation-icon {
+  font-size: inherit !important;
+}
+.react-datepicker__navigation--next {
+  right: 10px !important;
+}
+.react-datepicker__navigation--previous {
+  left: 10px !important;
+}
+.privacy-policy-block a {
+  @apply text-brand-blue hover:underline;
+}
+
+.loading,
+.loader::after {
+  @apply inline-flex text-green-500 w-[0.8em] h-[0.8em] border-r-transparent border-t-transparent border-current rounded-full border-[0.1em];
+}
+
+.loading {
+  animation: linear 0.5s Spinner infinite;
+  @apply top-1/2 left-1/2 fixed text-6xl;
+}
+
+.loader {
+  text-align: center;
+}
+.loader::after {
+  content: "";
+  @apply animate-spin;
+}
+
+@keyframes Spinner {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.PhoneInputInput:focus {
+  box-shadow: none !important;
+}
+
+.backface-visibility-hidden {
+  backface-visibility: hidden;
+}
+
+.hotel-details-h2 {
+  @apply text-lg md:text-2xl text-brand-neutral-800 font-semibold mb-2;
+}

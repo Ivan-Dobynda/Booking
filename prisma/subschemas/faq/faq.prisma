@@ -1,0 +1,9 @@
+model Faq {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  sortOrder Int?
+  lang      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

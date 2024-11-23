@@ -1,0 +1,815 @@
+{
+    "from": 1,
+    "to": 100,
+    "total": 160002,
+    "auditData": {
+        "processTime": "26",
+        "timestamp": "2024-01-16 08:03:26.780",
+        "requestHost": "10.214.131.238",
+        "serverId": "hotel-content-api-776cc6d786-zfb4c",
+        "environment": "[int, awseucentral1, k8s, gcpeuropewest1, secret, hotel-content-api-776cc6d786-zfb4c]",
+        "release": ""
+    },
+    "hotels": [
+        {
+            "code": 1,
+            "name": {
+                "content": "Ohtels Villa Dorada"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 2,
+            "name": {
+                "content": "htop Calella Palace"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 5,
+            "name": {
+                "content": "HG Lomo Blanco"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ACE"
+        },
+        {
+            "code": 7,
+            "name": {
+                "content": "Servatur Don Miguel Adults Only"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LPA"
+        },
+        {
+            "code": 8,
+            "name": {
+                "content": "Servatur Waikiki"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LPA"
+        },
+        {
+            "code": 9,
+            "name": {
+                "content": "Barcelo Fuerteventura Mar"
+            },
+            "countryCode": "ES",
+            "destinationCode": "FUE"
+        },
+        {
+            "code": 10,
+            "name": {
+                "content": "Natural Park"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LPA"
+        },
+        {
+            "code": 11,
+            "name": {
+                "content": "H10 Salou Princess"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 12,
+            "name": {
+                "content": "Santa Rosa"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 13,
+            "name": {
+                "content": "Rentalmar Arquus"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 15,
+            "name": {
+                "content": "Dunas Club"
+            },
+            "countryCode": "ES",
+            "destinationCode": "FUE"
+        },
+        {
+            "code": 16,
+            "name": {
+                "content": "Elba Castillo San Jorge y Antigua Suite Hotel"
+            },
+            "countryCode": "ES",
+            "destinationCode": "FUE"
+        },
+        {
+            "code": 18,
+            "name": {
+                "content": "Melia Jardines del Teide"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 19,
+            "name": {
+                "content": "Apartments Europa - Blanes"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 21,
+            "name": {
+                "content": "Hotel Viladomat"
+            },
+            "countryCode": "ES",
+            "destinationCode": "BCN"
+        },
+        {
+            "code": 22,
+            "name": {
+                "content": "Vista Club"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 23,
+            "name": {
+                "content": "Globales Costa de la Calma"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 24,
+            "name": {
+                "content": "Atismar"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 25,
+            "name": {
+                "content": "Mirachoro Carvoeiro"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 26,
+            "name": {
+                "content": "Vila Gale Atlantico"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 29,
+            "name": {
+                "content": "Oku Ibiza"
+            },
+            "countryCode": "ES",
+            "destinationCode": "IBZ"
+        },
+        {
+            "code": 30,
+            "name": {
+                "content": "Vibra Monterrey Aparthotel"
+            },
+            "countryCode": "ES",
+            "destinationCode": "IBZ"
+        },
+        {
+            "code": 33,
+            "name": {
+                "content": "Aqua Hotel Onabrava & Spa "
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 39,
+            "name": {
+                "content": "Exe Sevilla Macarena"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 40,
+            "name": {
+                "content": "Luz y Mar"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ACE"
+        },
+        {
+            "code": 41,
+            "name": {
+                "content": "Madeira Panoramico"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FNC"
+        },
+        {
+            "code": 42,
+            "name": {
+                "content": "Colina dos Mouros"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 43,
+            "name": {
+                "content": "Vila Gale Albacora"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 44,
+            "name": {
+                "content": "Alegria Colonial Mar"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LEI"
+        },
+        {
+            "code": 46,
+            "name": {
+                "content": "Guitart Rosa"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 47,
+            "name": {
+                "content": "Hostal Vila del Mar"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 48,
+            "name": {
+                "content": "htop Royal Sun"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 49,
+            "name": {
+                "content": "Mercury"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 50,
+            "name": {
+                "content": "Aquamarina & SPA"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 51,
+            "name": {
+                "content": "htop Amatista"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 52,
+            "name": {
+                "content": "Europa Splash"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 53,
+            "name": {
+                "content": "Playas del Rey"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 54,
+            "name": {
+                "content": "Iberostar Selection Andalucia Playa"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LUZ"
+        },
+        {
+            "code": 56,
+            "name": {
+                "content": "4R Salou Park Resort II"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 57,
+            "name": {
+                "content": "Barcelona Universal"
+            },
+            "countryCode": "ES",
+            "destinationCode": "BCN"
+        },
+        {
+            "code": 58,
+            "name": {
+                "content": "Melia Marbella Banus"
+            },
+            "countryCode": "ES",
+            "destinationCode": "AGP"
+        },
+        {
+            "code": 62,
+            "name": {
+                "content": "Vila Gale Nautico"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 63,
+            "name": {
+                "content": "Tivoli Marina Vilamoura Algarve Resort"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 64,
+            "name": {
+                "content": "Boa Vista Hotel & Spa"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 65,
+            "name": {
+                "content": "Algarve Casino"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 67,
+            "name": {
+                "content": "Flamero"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LUS"
+        },
+        {
+            "code": 68,
+            "name": {
+                "content": "Sol Sancti Petri Apartamentos"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LUZ"
+        },
+        {
+            "code": 69,
+            "name": {
+                "content": "INNSiDE by Meliá Barcelona Apolo"
+            },
+            "countryCode": "ES",
+            "destinationCode": "BCN"
+        },
+        {
+            "code": 71,
+            "name": {
+                "content": "La Barracuda"
+            },
+            "countryCode": "ES",
+            "destinationCode": "AGP"
+        },
+        {
+            "code": 73,
+            "name": {
+                "content": "Hotel TRH La Motilla"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 74,
+            "name": {
+                "content": "AR Roca Esmeralda & Spa"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ALC"
+        },
+        {
+            "code": 75,
+            "name": {
+                "content": "Sol Tenerife"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 76,
+            "name": {
+                "content": "Bendinat"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 77,
+            "name": {
+                "content": "Barcelo Illetas Albatros"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 78,
+            "name": {
+                "content": "htop Royal Star"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 79,
+            "name": {
+                "content": "Cleopatra Palace Hotel"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 81,
+            "name": {
+                "content": "Tagoro Family and Fun Costa Adeje"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 82,
+            "name": {
+                "content": "Be Live Experience Orotava"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 83,
+            "name": {
+                "content": "Globales Cortijo Blanco"
+            },
+            "countryCode": "ES",
+            "destinationCode": "AGP"
+        },
+        {
+            "code": 84,
+            "name": {
+                "content": "Casas de la Juderia"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 85,
+            "name": {
+                "content": "Hipotels Sherry Park "
+            },
+            "countryCode": "ES",
+            "destinationCode": "CAD"
+        },
+        {
+            "code": 86,
+            "name": {
+                "content": "Molino de Guatiza"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ACE"
+        },
+        {
+            "code": 87,
+            "name": {
+                "content": "NH Las Palmas Playa las Canteras"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LPA"
+        },
+        {
+            "code": 88,
+            "name": {
+                "content": "Bull Astoria"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LPA"
+        },
+        {
+            "code": 89,
+            "name": {
+                "content": "Fuerteventura Beach Club "
+            },
+            "countryCode": "ES",
+            "destinationCode": "FUE"
+        },
+        {
+            "code": 90,
+            "name": {
+                "content": "Hotel Best Negresco"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 91,
+            "name": {
+                "content": "Hotel Best Cambrils"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SAL"
+        },
+        {
+            "code": 93,
+            "name": {
+                "content": "Melia Sitges"
+            },
+            "countryCode": "ES",
+            "destinationCode": "STS"
+        },
+        {
+            "code": 95,
+            "name": {
+                "content": "Pestana Cascais Ocean and Conference Aparthotel"
+            },
+            "countryCode": "PT",
+            "destinationCode": "COS"
+        },
+        {
+            "code": 96,
+            "name": {
+                "content": "Gran Garbi"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 99,
+            "name": {
+                "content": "htop Platja Park"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 100,
+            "name": {
+                "content": "Esplendid"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LLM"
+        },
+        {
+            "code": 101,
+            "name": {
+                "content": "Prinsotel la Caleta"
+            },
+            "countryCode": "ES",
+            "destinationCode": "MAH"
+        },
+        {
+            "code": 102,
+            "name": {
+                "content": "Hotel Puerto Palace"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 104,
+            "name": {
+                "content": "Regina"
+            },
+            "countryCode": "ES",
+            "destinationCode": "BCN"
+        },
+        {
+            "code": 105,
+            "name": {
+                "content": "Hotel Cassandra"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 106,
+            "name": {
+                "content": "tent Playa de Palma"
+            },
+            "countryCode": "ES",
+            "destinationCode": "PMI"
+        },
+        {
+            "code": 107,
+            "name": {
+                "content": "Muthu Royal Park Albatros"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 108,
+            "name": {
+                "content": "Da Bolsa"
+            },
+            "countryCode": "PT",
+            "destinationCode": "OPO"
+        },
+        {
+            "code": 109,
+            "name": {
+                "content": "Baia Grande"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 110,
+            "name": {
+                "content": "Roquetas Beach"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LEI"
+        },
+        {
+            "code": 112,
+            "name": {
+                "content": "Aqualuz Lagos by The Editory"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 113,
+            "name": {
+                "content": "Tivoli Lagos Algarve Resort"
+            },
+            "countryCode": "PT",
+            "destinationCode": "FAO"
+        },
+        {
+            "code": 116,
+            "name": {
+                "content": "Melia Lebreros"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 119,
+            "name": {
+                "content": "Globales Acuario"
+            },
+            "countryCode": "ES",
+            "destinationCode": "TFS"
+        },
+        {
+            "code": 120,
+            "name": {
+                "content": "Peña de Arcos"
+            },
+            "countryCode": "ES",
+            "destinationCode": "CAD"
+        },
+        {
+            "code": 121,
+            "name": {
+                "content": "Fuentenueva"
+            },
+            "countryCode": "ES",
+            "destinationCode": "JEN"
+        },
+        {
+            "code": 122,
+            "name": {
+                "content": "Monasterio de San Francisco"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ODB"
+        },
+        {
+            "code": 124,
+            "name": {
+                "content": "Exe Triunfo Granada"
+            },
+            "countryCode": "ES",
+            "destinationCode": "GRX"
+        },
+        {
+            "code": 125,
+            "name": {
+                "content": "Reina Cristina"
+            },
+            "countryCode": "ES",
+            "destinationCode": "GRX"
+        },
+        {
+            "code": 127,
+            "name": {
+                "content": "Alhambra Palace"
+            },
+            "countryCode": "ES",
+            "destinationCode": "GRX"
+        },
+        {
+            "code": 129,
+            "name": {
+                "content": "Silken Al-Andalus"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 130,
+            "name": {
+                "content": "NH Córdoba Califa"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ODB"
+        },
+        {
+            "code": 132,
+            "name": {
+                "content": "Alfaros"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ODB"
+        },
+        {
+            "code": 133,
+            "name": {
+                "content": "Hoteles Globales Reina Cristina"
+            },
+            "countryCode": "ES",
+            "destinationCode": "LUZ"
+        },
+        {
+            "code": 136,
+            "name": {
+                "content": "Ilunion Alcora Sevilla"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        },
+        {
+            "code": 137,
+            "name": {
+                "content": "Wilson Boutique Hotel"
+            },
+            "countryCode": "ES",
+            "destinationCode": "BCN"
+        },
+        {
+            "code": 138,
+            "name": {
+                "content": "Maestranza"
+            },
+            "countryCode": "ES",
+            "destinationCode": "MAL"
+        },
+        {
+            "code": 139,
+            "name": {
+                "content": "Atlantis Las Lomas"
+            },
+            "countryCode": "ES",
+            "destinationCode": "ACE"
+        },
+        {
+            "code": 142,
+            "name": {
+                "content": "Inglaterra"
+            },
+            "countryCode": "ES",
+            "destinationCode": "SVQ"
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+import type { Config } from "tailwindcss";
+
+const config: Config = {
+  content: [
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        brand: {
+          blue: {
+            50: "#E6EBF0",
+            100: "#D9E0E8",
+            200: "#B0C0D0",
+            300: "#003366",
+            DEFAULT: "#003366",
+            400: "#002E5C",
+            500: "#002952",
+            600: "#00264D",
+            700: "#001F3D",
+            800: "#00172E",
+            900: "#001224",
+          },
+          orange: {
+            50: "#FFFAF5",
+            100: "#FFF7F0",
+            200: "#FFEFDF",
+            300: "#FFCC99",
+            DEFAULT: "#FFCC99",
+            400: "#E6B88A",
+            500: "#CCA37A",
+            600: "#BF9973",
+            700: "#997A5C",
+            800: "#735C45",
+            900: "#594736",
+          },
+          black: {
+            50: "#E9E9E9",
+            100: "#DEDDDE",
+            200: "#BBBABA",
+            300: "#231F20",
+            DEFAULT: "#231F20",
+            400: "#201C1D",
+            500: "#1C191A",
+            600: "#1A1718",
+            700: "#151313",
+            800: "#100E0E",
+            900: "#0C0B0B",
+          },
+          gray: {
+            50: "#F0F0F0",
+            100: "#E8E8E8",
+            200: "#D0D0D0",
+            300: "#666666",
+            DEFAULT: "#666666",
+            400: "#5C5C5C",
+            500: "#525252",
+            600: "#4D4D4D",
+            700: "#3D3D3D",
+            800: "#2E2E2E",
+            900: "#242424",
+          },
+          neutral: {
+            25: "#FCFCFD",
+            50: "#F9FAFB",
+            100: "#F2F4F7",
+            200: "#EAECF0",
+            300: "#D0D5DD",
+            DEFAULT: "#D0D5DD",
+            400: "#98A2B3",
+            500: "#667085",
+            600: "#475467",
+            700: "#344054",
+            800: "#1D2939",
+            900: "#101828",
+          },
+        },
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+};
+export default config;

@@ -1,0 +1,6 @@
+export const seatPreferences = ['Aisle Seat', 'Window Seat', 'Middle Seat', 'Front Section', 'Back Section', 'Exit Row']
+export const mealPreferences = ['Vegetarian', 'Vegan', 'Gluten-Free', 'Halal', 'kosher', 'No Preference']
+export const connectionPreferences = ['Non-stop', 'Short Layover', 'Medium Layover', 'Long Layover']
+export const notificationPreferences = ['Flight Status Updates', 'Gate Changes', 'Boarding Alerts']
+export const aircraftPreferences = ['Boeing', 'Airbus', 'Embraer', 'Business Class', 'Economy Class']
+export const loyaltyPreferences = ['Link Loyalty Program', 'Manage Loyalty Preferences']

@@ -1,0 +1,78 @@
+model Transaction {
+    id                    String            @id @default(auto()) @map("_id") @db.ObjectId
+    fees_currency         String?
+    fees_amount           String?
+    client_token          String?
+    card_network          String?
+    card_last_four_digits String?
+    card_country_code     String?
+    net_currency          String?
+    net_amount            String?
+    confirmed_at          DateTime?
+    refunds               Json?
+    created_at            DateTime
+    updated_at            DateTime?
+    amount                String
+    currency              String
+    status                Status?
+    paymentId             String            @unique
+    seatServices          Seat[]
+    passengers            Passenger[]
+    offerId               String            @unique
+    userId                String?
+    orderId               String?
+    expires_at            DateTime
+    airlineName           String?
+    commission            Float
+}
+
+enum Status {
+    open
+    complete
+    expired
+}
+
+enum PassengerType {
+  adult
+  child
+  infant_without_seat
+}
+
+enum PassengerGender {
+    m
+    f
+}
+
+enum Title {
+    MR
+    MS
+    MRS
+    mr
+    ms
+    mrs
+}
+
+model Passenger {
+    uid           String       @id @default(auto()) @map("_id") @db.ObjectId
+    id            String
+    type          PassengerType
+    born_on       String
+    title         Title
+    gender        PassengerGender
+    family_name   String
+    given_name    String
+    email         String
+    phone_number  String
+    identity_documents Json?           
+    Transaction   Transaction? @relation(fields: [transactionId], references: [id])
+    transactionId String?      @db.ObjectId
+}
+
+model Seat {
+    uid           String       @id @default(auto()) @map("_id") @db.ObjectId
+    id            String
+    quantity      Int
+    Transaction   Transaction? @relation(fields: [transactionId], references: [id])
+    transactionId String?      @db.ObjectId
+    serviceInformation Json?
+}

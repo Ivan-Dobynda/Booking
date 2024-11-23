@@ -1,0 +1,9 @@
+import { User } from "./user"
+
+model PersonalInfo {
+    id             String  @id @default(auto()) @map("_id") @db.ObjectId
+    userId         String  @unique
+    passportNumber String?
+    nationalId     String?
+    user           User    @relation(fields: [userId], references: [id])
+}

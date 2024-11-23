@@ -1,0 +1,11 @@
+import { Blog } from "./blog";
+
+model BlogCategory {
+    id                String            @id @default(auto()) @map("_id") @db.ObjectId
+    title             String
+    slug              String?
+    isActive          Boolean           @default(true)
+    blogs             Blog[]
+    createdAt         DateTime         @default(now())
+    updatedAt         DateTime         @updatedAt
+}

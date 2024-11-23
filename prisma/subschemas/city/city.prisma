@@ -1,0 +1,15 @@
+import { State } from "../state/state"
+
+model City {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  cityId     Int?
+  city       String
+  sortOrder  Int?
+  isDefault  Boolean  @default(false)
+  isActive   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  state      State?   @relation(fields: [stateId], references: [id])
+  stateId    String?  @db.ObjectId
+  stateIdOld Int? // remove later
+}

@@ -1,0 +1,20 @@
+import { State } from "../state/state"
+import { Currency } from "../currency/currency"
+import { Language } from "../language/language"
+
+model Country {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  countryId   Int?
+  country     String   @unique
+  sortOrder   Int      @default(0)
+  isDefault   Boolean  @default(false)
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  states      State[]
+
+  currencyIDs  String[]   @db.ObjectId
+  currencies Currency[] @relation(fields: [currencyIDs], references: [id])
+  languageIDs  String[]   @db.ObjectId
+  languages Language[] @relation(fields: [languageIDs], references: [id])
+}

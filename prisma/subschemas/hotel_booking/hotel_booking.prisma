@@ -1,0 +1,15 @@
+import { User } from "../user/user"
+import { Transaction } from "../transaction/transaction";
+
+model HotelBooking {
+    id                     String       @id @default(auto()) @map("_id") @db.ObjectId
+    bookingReference       String?        
+    clientReference        String?
+    hotelName              String
+    hotelCode              String?
+    amount                 Float?
+    currency               String?
+    user                   User         @relation(fields: [userId], references: [id])
+    userId                 String
+    createdAt              DateTime     @default(now())
+}
